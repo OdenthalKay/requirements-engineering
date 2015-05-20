@@ -1,13 +1,16 @@
 
 FILENAME 	= main
 
-default: $(FILENAME).dvi
-
-main.dvi: $(FILENAME).tex
-	latex $(FILENAME).tex
+default: pdf 
+pdf:	$(FILENAME).pdf
 #####################################
-init:
-	xdvi -watchfile 1 $(FILENAME).dvi
 
+$(FILENAME).pdf: $(FILENAME).tex uml.1
+	pdflatex $(FILENAME).tex -output-format=pdf
+
+uml.1: uml.mp
+	mpost uml.mp
+
+#####################################
 clean:
-	rm *.dvi *.log *.aux
+	rm *.dvi *.log *.aux *.pdf *.1

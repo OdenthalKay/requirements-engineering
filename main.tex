@@ -1,5 +1,25 @@
-\documentclass{article}
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc} % this is needed for german umlauts
+\usepackage[ngerman]{babel} % this is needed for german umlauts
+\usepackage[T1]{fontenc}    % this is needed for correct output of umlauts in pdf
 
+% The following is needed in order to make the code compatible
+% with both latex/dvips and pdflatex.
+\ifx\pdftexversion\undefined
+\usepackage[dvips]{graphicx}
+\else
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THE DOCUMENT BEGINS             	                              	 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-testestest
+\section{Class diagram}
+Hier ist ein Beispieltext. Darunter befindet sich ein Klassendiagramm. Daneben befindet sich ein weiteres Klassendiagramm. Das war es soweit. Und hier ist noch ein Satz. Das hier ist ein weiterer Satz. Noch ein Satz.
+\begin{center}
+\includegraphics{uml.1}
+\end{center}
+Hier geht der Text weiter. Das nachfolgende Diagram veranschaulicht den Sachverhalt.
 \end{document}
